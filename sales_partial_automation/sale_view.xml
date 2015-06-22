@@ -1,0 +1,23 @@
+<openerp>
+    <data>
+        <record id="view_order_form_extend" model="ir.ui.view">
+            <field name="name">sale.order.form.extension</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref='sale.view_order_form'/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header/button[@name='action_button_confirm']" position="after">
+                    <button name="inv_del" type="object" string="Done" states="draft"/>
+                </xpath>
+                <xpath expr="//form/sheet/group/group[1]/field[@name='partner_id']" position="after">
+                    <field name="load_purchase_batch"/>
+                    <field name="storecredit"/>
+<!--                    <filed name="invoice_ref"/>
+                    <filed name="invoice_date"/>-->
+                    
+                </xpath>
+            </field>
+            
+        </record>
+         
+    </data>
+</openerp>
